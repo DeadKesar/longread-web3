@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основные направления развития современных Интернет-технологий</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #e63946;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+        
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body { 
+            font-family: 'Source Sans Pro', sans-serif; 
+            line-height: 1.9; 
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+        
+        h1, h2, h3, h4, .nav-link { 
+            font-family: 'Playfair Display', serif; 
+        }
+        
+        .hero { 
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1a365d 100%);
+            color: white; 
+            padding: 140px 0 100px; 
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        .content-block { 
+            max-width: 800px; 
+            margin: 0 auto 80px auto; 
+            padding: 0 20px;
+        }
+        
+        .content-block h2 {
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .content-block h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .img-fluid { 
+            border-radius: 12px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12); 
+            margin: 40px 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .img-fluid:hover {
+            transform: scale(1.02);
+        }
+        
+        .quote { 
+            border-left: 4px solid var(--accent); 
+            padding: 20px 30px; 
+            font-style: italic; 
+            color: var(--text-muted); 
+            margin: 40px 0; 
+            font-size: 1.2rem;
+            background: white;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .reference-list li { 
+            margin-bottom: 12px; 
+            word-wrap: break-word; 
+        }
+        
+        .navbar { 
+            background-color: rgba(255, 255, 255, 0.98); 
+            backdrop-filter: blur(10px); 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            color: var(--primary) !important;
+            font-weight: 700;
+        }
+        
+        .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent) !important;
+        }
+        
+        .video-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            max-width: 100%; 
+            margin: 40px 0; 
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .video-container iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+        }
+        
+        .card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            background: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 35px rgba(0,0,0,0.12);
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        .card-title {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .list-group-item {
+            border: none;
+            border-radius: 12px !important;
+            margin-bottom: 10px;
+            padding: 20px 25px;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .list-group-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(10px);
+        }
+        
+        .list-group-item:hover strong {
+            color: white;
+        }
+        
+        .list-group-item strong {
+            color: var(--primary);
+            transition: color 0.3s;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #0f172a, #1e3a5f);
+        }
+        
+        /* Анимации появления */
+        .fade-in { 
+            animation: fadeIn 1s ease-out; 
+        }
+        
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Стилизация списков */
+        .content-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .content-block ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .content-block ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        /* Ссылки */
+        a {
+            color: var(--accent);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--primary);
+        }
+        
+        .tech-stack-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .tech-stack-item:last-child {
+            border-bottom: none;
+        }
+        
+        .tech-stack-item strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Lab Work #2</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#intro">Введение</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#web3">Концепция Web 3.0</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#semantic">Семантический Веб</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#social">Соцсети</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#conclusion">Заключение</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero text-center fade-in">
+        <div class="container position-relative">
+            <h1>Основные направления развития современных Интернет-технологий</h1>
+            <p class="mt-4 text-white-50 fs-5">Выполнил: Порядин Вячеслав Сергеевич (ИДМ-25-01)</p>
+        </div>
+    </header>
+
+    <!-- Введение -->
+    <section id="intro" class="content-block animate-on-scroll">
+        <h2 class="fw-bold mb-4">Введение</h2>
+        <p>Инфокоммуникационные технологии (ИКТ) и Интернет-технологии (ИТ) являются локомотивом развития современного общества и промышленности, обеспечивая связь, обработку данных и инновации в различных сферах. За последние два десятилетия технологии обмена, обработки и хранения информации претерпели кардинальные изменения, что привело к формированию новых моделей взаимодействия между людьми, организациями и государствами.</p>
+        <p>Сегодня информационные технологии (ИТ) охватывают практически все сферы человеческой деятельности. В технологическом контексте можно выделить следующие ключевые тенденции: широкое распространение облачных вычислений, развитие искусственного интеллекта и машинного обучения, ИИ-агенты, повсеместное внедрение технологий больших данных, квантовых технологий, внедрение 5G-сетей, разработка 6G-сетей[1], развитие автономного транспорта, разработки по робототехнике, а также рост значимости кибербезопасности[2].</p>
+        <p>В социальном контексте ИТ обеспечивают новые форматы коммуникации, электронные государственные сервисы, дистанционное образование, онлайн-торговлю и цифровую медицину. Общий объем рынка ИТ в 2025 году оценивается в триллионы долларов (4.7 трлн за 2024 год [3]), с акцентом на устойчивые и инклюзивные технологии, интегрирующие ИИ для повышения производительности.</p>
+        <p>Цифровая экономика – деятельность, непосредственно связанная с развитием цифровых и компьютерных технологий, которая включает онлайн-сервисы, электронные платежи, онлайн торговлю, краутфандинг и так далее [4].</p>
+        <p>Роль ИТ в этих процессах заключается в обеспечении инфраструктуры для данных, таких как блокчейн для прозрачности транзакций и ИИ для анализа больших данных, что способствует росту экономики. Цифровая экономика в настоящее время составляет 18% ВВП США, по сравнению с 11% в 2020 году [5]. Согласно отчетам, основные тенденции сосредоточены на ИИ, IoT и кибербезопасности для глобального сотрудничества. Более 94% организаций внедряют цифровые инициативы. [6]</p>
+        <p>Понятие «Индустрия 4.0» относится к четвертой промышленной революции, характеризующейся интеграцией цифровых технологий в производство для создания «умных» фабрик. Четвертая индустриальная революция (Индустрия 4.0) — переход на полностью автоматизированное цифровое производство, управляемое интеллектуальными системами в режиме реального времени в постоянном взаимодействии с внешней средой, выходящее за границы одного предприятия, с перспективой объединения в глобальную промышленную сеть Вещей и услуг. [7]</p>
+        <p>В 2025 году перспективные ИТ включают сенсоры, облачные и краевые вычисления, VR и AR, ИИ, а также робототехнику и IoT, что позволяет достигать автоматизации и предиктивного обслуживания [8]. Рынок технологий Индустрии 4.0 оценивается в 551,7 миллиарда долларов в 2024 году с прогнозируемым ростом до 1,6 триллиона долларов к 2030 году при CAGR 19,4%. Ключевые технологии, такие как большие данные аналитика и криптография, обеспечивают безопасность и эффективность в цепочках поставок, способствуя переходу к гибридным экосистемам.[9]</p>
+        <p>Термин «Web 3.0» связывают с формированием нового поколения интернета, основанного на принципах децентрализации, интеллектуальной обработки информации и персонализации. Это идея для нового поколения Всемирной паутины, которая включает в себя концепции, такие, как децентрализация, блокчейн-технологии и токенизация экономики. [10]</p>
+        <p>Ключевые технологические тренды в рамках Web 3.0 включают: Семантический веб (Semantic Web), обеспечивающий «понимание» информации машинами; блокчейн и смарт-контракты, гарантирующие прозрачность и безопасность транзакций; дополненную и виртуальную реальность (AR/VR); искусственный интеллект, обрабатывающий огромные объемы данных; децентрализованные приложения (dApps) и развитие метавселенных.</p>
+        <p>Таким образом, Web 3.0 открывает новые возможности для более интеллектуального, гибкого и доверенного интернета.</p>
+
+        <figure class="text-center">
+            <img src="image1.jpg" alt="Статистика использования соцсетей 2025" class="img-fluid">
+            <figcaption class="text-muted small mt-3">Рис 1. Обзор использования социальных сетей в мире (Февраль 2025)</figcaption>
+        </figure>
+    </section>
+
+    <!-- Web 3.0 -->
+    <section id="web3" class="content-block animate-on-scroll">
+        <h2 class="fw-bold mb-4">Ключевые направления: Web 3.0</h2>
+        <p>Концепция «Web 3.0» представляет собой эволюцию Интернета, ориентированную на децентрализацию, пользовательский контроль над данными и интеграцию передовых технологий, таких как блокчейн и искусственный интеллект. В 2025 году текущее состояние развития Web 3.0 характеризуется значительным ростом рынка, оцениваемым в 6,47 миллиарда долларов США с ежегодным приростом в 44,3%, что обусловлено увеличением корпоративного внедрения и инфраструктурных инноваций [10]. Эта эволюция переходит от централизованных платформ Web 2.0 к распределенным системам, где пользователи владеют своими данными, а транзакции происходят без посредников, способствуя повышению прозрачности и безопасности. С точки зрения развития Интернет-технологий (ИТ), Web 3.0 интегрирует элементы, такие как смарт-контракты, децентрализованные приложения (dApps) и токенизация активов, что стимулирует инновации в экономике и социальных взаимодействиях. Однако вызовы включают регуляторные барьеры и необходимость улучшения пользовательского опыта для массового принятия [11].</p>
+
+        <p><strong>Web 3.0 основывается на следующих принципах:</strong></p>
+        <ul>
+            <li><strong>Семантичность:</strong> использование формальных описаний данных, чтобы информация могла интерпретироваться машинами.</li>
+            <li><strong>Децентрализация:</strong> хранение и обработка данных без зависимости от централизованных серверов, с применением блокчейна.</li>
+            <li><strong>Персонализация:</strong> интеллектуальные алгоритмы подстраивают информационные потоки под запросы и предпочтения пользователя.</li>
+            <li><strong>Интеграция:</strong> объединение различных типов данных (текст, изображение, звук, видео, сенсорные данные IoT) в единую цифровую среду.</li>
+        </ul>
+
+        <div class="mb-4">
+            <h5 class="mt-4">Видео-введение в Web 3.0:</h5>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=vy3LkDxumoQNE9DB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p class="text-muted small">Видео: «ЧТО ТАКОЕ WEB 3.0 на самом деле? Простыми словами» (2024)</p>
+        </div>
+
+        <p><strong>Ключевые технологические тренды Web 3.0:</strong></p>
+        <ul>
+            <li>Интеграция искусственного интеллекта (ИИ) для автоматизации и персонализации, а также интеллектуальной обработки больших данных.</li>
+            <li>Развитие децентрализованных физических инфраструктур (DePINs) для распределения ресурсов.</li>
+            <li>Токенизация реальных активов (RWAs) для цифровизации традиционных финансов.</li>
+            <li>Метавселенные и AR/VR – расширенные формы взаимодействия пользователей.</li>
+            <li>Альтернативные платежные системы на базе блокчейна.</li>
+            <li>Интернет вещей (IoT) – интеграция физического мира и цифровых сервисов. [10, 11]</li>
+        </ul>
+    </section>
+
+    <!-- Семантический веб -->
+    <section id="semantic" class="content-block animate-on-scroll">
+        <h2 class="fw-bold mb-4">Семантический веб (Semantic Web)</h2>
+        <p>Семантический веб (Semantic Web) – это концепция, предложенная Т. Бернерсом-Ли, создателем WWW. Ее основная идея заключается в том, чтобы данные в сети имели четкую структуру и формальное описание, позволяющее не только людям, но и компьютерам «понимать» смысл информации. Концепция ориентирована на формирование структурированных данных, доступных для машинной интерпретации, с применением стандартов, таких как RDF (Resource Description Framework), OWL (Web Ontology Language) и SPARQL для выполнения запросов. [12]</p>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Технологический стек</h5>
+                <div class="tech-stack-item">
+                    <strong>RDF (Resource Description Framework)</strong>
+                    Стандарт для описания информации в виде триплетов (subject, predicate, object), что делает его основой для представления данных в виде графов. RDF позволяет моделировать отношения между объектами и представлять их как связные структуры.
+                </div>
+                <div class="tech-stack-item">
+                    <strong>OWL (Web Ontology Language)</strong>
+                    Язык для создания и использования онтологий. Онтология — это формализация некоторой области знаний, пример онтологии — FOAF (Friend of a Friend). OWL расширяет возможности RDF, позволяя более точно и выразительно моделировать отношения и ограничения между сущностями.
+                </div>
+                <div class="tech-stack-item">
+                    <strong>OWL DL (Description Logic)</strong>
+                    Основной диалект OWL, который гарантирует завершимость логического вывода. OWL ризонинг или инференсинг (reasoning, inferencing) – это процесс логического вывода, выполняемого на основе онтологии.
+                </div>
+                <div class="tech-stack-item">
+                    <strong>SPARQL</strong>
+                    Язык запросов к семантическим данным.
+                </div>
+                <div class="tech-stack-item">
+                    <strong>SHACL (Shapes Constraint Language)</strong>
+                    Используется для валидации RDF данных на соответствие заданным ограничениям. Позволяет определить формы (shapes), которые описывают допустимые структуры данных.
+                </div>
+            </div>
+        </div>
+
+        <p>Semantic Web — это переход от традиционных онтологий к интеграции с системами агентного искусственного интеллекта, где семантические подходы обеспечивают контекстуальное понимание информации, способствуя переходу к моделям «агентного ИИ».</p>
+        <p>В аспекте верстки (markup) современный стандарт HTML акцентирует внимание на семантической разметке, используя элементы, такие как &lt;article&gt;, &lt;section&gt;, &lt;nav&gt;, &lt;header&gt; и &lt;footer&gt;, для повышения доступности, оптимизации поисковых систем (SEO) и облегчения машинного чтения, что способствует созданию более инклюзивных и эффективных веб-ресурсов. А Semantic Web предполагает переход к новому формату разметки.</p>
+        <p>Сегодня семантические технологии активно развиваются в научной и прикладной сферах: в медицине, в электронной коммерции, в социальных сетях, в открытых данных.</p>
+        <p>Несмотря на значительный прогресс, широкое распространение Semantic Web сдерживается рядом факторов: сложность построения онтологий, высокая стоимость внедрения и необходимость глобальной стандартизации. [13]</p>
+        <p>Они представляют собой одну из ключевых отраслей применения интернет-технологий (ИТ) в рамках концепции «Web 3.0», где акцент делается на децентрализации, усилении пользовательского контроля над данными и интеграции блокчейн-механизмов для повышения прозрачности и приватности. В настоящее время социальные сети эволюционируют от централизованных платформ, таких как Meta и X (ранее Twitter), к децентрализованным моделям, где пользователи могут владеть своим контентом и получать вознаграждения за участие через токенизацию. Согласно данным на 2025 год, глобальное количество активных пользователей социальных сетей превышает 5,24 миллиарда человек, с ежегодным приростом в 4,1%, что подчеркивает их критическую роль в цифровой экономике и повседневной коммуникации [14].</p>
+        <p>Сегодняшние социальные сети (Facebook/Meta, Instagram, TikTok, ВКонтакте и др.) активно используют ИТ второго поколения (Web 2.0): алгоритмы рекомендательных систем, таргетированную рекламу, мультимедийный контент, облачные платформы. Однако данные в таких системах в значительной степени централизованы и принадлежат корпорациям, что порождает проблемы с приватностью, безопасностью и монополизацией рынка.</p>
+        <p>Примерами платформ, стремящихся к переходу Web 3.0 служат Steemit, Mastodon, Lens Protocol и Diaspora, они используют блокчейн для создания экосистем, ориентированных на сообщество, с элементами искусственного интеллекта (ИИ) для персонализации контента и модерации. В контексте инфокоммуникационных технологий (ИКТ), социальные сети интегрируют IoT и AR для создания метавселенных, где виртуальные взаимодействия дополняют реальные.</p>
+    </section>
+
+    <!-- Соцсети и Кейсы -->
+    <section id="social" class="content-block animate-on-scroll">
+        <h2 class="fw-bold mb-4">Основные области применения ИТ в концепции «Web 3.0»</h2>
+        <p><strong>Практические кейсы (альтернативы):</strong></p>
+        <div class="list-group mb-4">
+            <a href="https://steemit.com/" target="_blank" class="list-group-item list-group-item-action">
+                <strong>Steemit</strong> — соцсеть на блокчейне, где платят за контент.
+            </a>
+            <a href="https://joinmastodon.org/" target="_blank" class="list-group-item list-group-item-action">
+                <strong>Mastodon</strong> — децентрализованная сеть микроблогов.
+            </a>
+            <a href="https://www.lens.xyz/" target="_blank" class="list-group-item list-group-item-action">
+                <strong>Lens Protocol</strong> — граф социальных связей Web 3.0.
+            </a>
+            <a href="https://diasporafoundation.org/" target="_blank" class="list-group-item list-group-item-action">
+                <strong>Diaspora</strong> — Децентрализованная социальная сеть.
+            </a>
+        </div>
+    </section>
+
+    <section class="content-block animate-on-scroll">
+        <p>Развитие ИТ в социальных сетях в рамках «Web 3.0» включает применение децентрализованных приложений (dApps), смарт-контрактов и токенизации реальных активов (RWAs). Текущее состояние отрасли отражает растущий интерес к децентрализованным физическим инфраструктурам (DePINs), которые распределяют ресурсы для хранения данных, и интеграцию ИИ для анализа поведения пользователей без нарушения приватности. Однако есть и проблемы: регуляторные барьеры, низкая масштабируемость блокчейн-сетей и необходимость улучшения пользовательского интерфейса для массового внедрения.</p>
+        <p>Массовые социальные сети всё ещё остаются в Web 2.0 и их переход в Web 3.0 остаётся теоретической возможностью. Мы можем только предполагать, какие технологии окажут наибольшее влияние и окажутся использованы при формировании нового социального пространства.</p>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Наиболее перспективные технологии:</h5>
+                <div class="tech-stack-item">
+                    <strong>Семантические технологии</strong>
+                    За счет повышения качества поиска и рекомендаций, а также межплатформенной интеграции.
+                </div>
+                <div class="tech-stack-item">
+                    <strong>Блокчейн</strong>
+                    Позволил бы обеспечить децентрализацию, что устранило бы уязвимости централизованных систем, такие как цензура и утечки данных, и способствовало бы прозрачности транзакций.
+                </div>
+                <div class="tech-stack-item">
+                    <strong>ИИ/МЛ</strong>
+                    Для интеллектуальной фильтрации информации и борьбы с дезинформацией.
+                </div>
+                <div class="tech-stack-item">
+                    <strong>VR/AR</strong>
+                    В долгосрочной перспективе, формируя новый формат «социальных метавселенных».
+                </div>
+                <div class="tech-stack-item">
+                    <strong>Токенизация активов</strong>
+                    Могла бы стать новой моделью монетизации, где создатели контента получают прямые вознаграждения через криптоэкономику.
+                </div>
+            </div>
+        </div>
+        
+        <p>Всё это позволило бы трансформировать социальные сети из централизованных рекламных платформ в децентрализованные, интеллектуальные и доверенные экосистемы, где ключевая ценность — данные и интересы пользователя, а не коммерческая выгода корпораций.</p>
+    </section>
+
+    <!-- Заключение -->
+    <section id="conclusion" class="content-block animate-on-scroll">
+        <h2 class="fw-bold mb-4">Заключение</h2>
+        <p>Были рассмотрены основные направления развития современных интернет-технологий (ИТ) и инфокоммуникационных технологий (ИКТ) в контексте эволюции цифровой экономики, концепций «Индустрия 4.0» и «Web 3.0».</p>
+        <p>Концепция «Web 3.0» представлена как децентрализованная эволюция интернета, где технологические тренды, такие как интеграция искусственного интеллекта (ИИ), децентрализованные инфраструктуры и токенизация активов, способствуют переходу к системам, ориентированным на пользователя. Особое внимание было уделено семантической паутине (Semantic Web), которая обеспечивает структурированное представление данных и их машинную интерпретацию. В качестве области применения выбраны социальные сети, где ИТ в рамках «Web 3.0» трансформируют традиционные платформы в децентрализованные экосистемы, повышая приватность, прозрачность и возможности монетизации контента.</p>
+        <p>В рамках рассмотренных тем наиболее важными технологиями выделяются: семантические технологии, блокчейн и ИИ. Семантический веб открывает возможности для качественного анализа и интеграции информации, а блокчейн обеспечивает децентрализацию и доверие. Развитие ИИ технологий способно изменить генерацию, модерацию и рекомендации контента в этой области. В совокупности эти направления способны радикально изменить социальные сети, превратив их в умные, прозрачные и безопасные экосистемы, где интересы пользователя выходят на первый план.</p>
+    </section>
+
+    <!-- Список литературы -->
+    <section class="content-block border-top pt-5 animate-on-scroll">
+        <h4 class="mb-4">Список использованных источников</h4>
+        <ol class="reference-list small text-muted" style="padding-left: 1.2rem; list-style: decimal;">
+            <li class="mb-2">
+                6G (шестое поколение мобильной связи) [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://www.tadviser.ru/a/469236" target="_blank" class="text-break">https://www.tadviser.ru/a/469236</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                Тенденции мирового ИТ-рынка [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://www.tadviser.ru/a/171763" target="_blank" class="text-break">https://www.tadviser.ru/a/171763</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                Мировой ИТ-рынок [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://www.tadviser.ru/a/53627" target="_blank" class="text-break">https://www.tadviser.ru/a/53627</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                Хасаншин И. И. (2021) Цифровая экономика: понятия и термины. Московский экономический журнал №4 2021. Казань. DOI 10.24412/2413-046X-2021-10199
+            </li>
+            <li class="mb-2">
+                Измерение цифровой экономики: реклама, контент, коммерция и инновации. [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://www.iab.com/insights/deighton-study-2025/" target="_blank" class="text-break">https://www.iab.com/insights/deighton-study-2025/</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                Тенденции цифровой экономики 2025 года. [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://dco.org/digital-economy-trends-2025-report/" target="_blank" class="text-break">https://dco.org/digital-economy-trends-2025-report/</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                Четвертая промышленная революция. Популярно о главном технологическом тренде XXI века. [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://www.tadviser.ru/a/371579" target="_blank" class="text-break">https://www.tadviser.ru/a/371579</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                Что такое индустрия 4.0 и что нужно о ней знать. [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://trends.rbc.ru/trends/industry/5e740c5b9a79470c22dd13e7" target="_blank" class="text-break">https://trends.rbc.ru/trends/industry/5e740c5b9a79470c22dd13e7</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                Industry 4.0 Technologies Market Report 2025 | Digital Transformation in Industry 4.0 Markets Surges with 19.4% CAGR Through 2030 [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://finance.yahoo.com/news/industry-4-0-technologies-market-142700969.html?guccounter=1" target="_blank" class="text-break">https://finance.yahoo.com/.../five-web3-trends-to-watch-in-2025...</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                Что такое Web 3.0: интернет будущего простыми словами [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://hi-tech.mail.ru/review/104290-web-3/#anchor17007437477474772" target="_blank" class="text-break">https://hi-tech.mail.ru/review/104290-web-3/</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                Five Web3 Trends To Watch In 2025: AI, DePINs, RWAs And Beyond [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://www.forbes.com/councils/forbesbusinesscouncil/2025/01/15/five-web3-trends-to-watch-in-2025-ai-depins-rwas-and-beyond/" target="_blank" class="text-break">https://www.forbes.com/.../five-web3-trends-to-watch-in-2025...</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                Семантический веб: краткий обзор технологий и инструментов. [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://habr.com/ru/articles/857652/" target="_blank" class="text-break">https://habr.com/ru/articles/857652/</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                Ansgar Scherp, Gerd Groener, Petr Škoda, Katja Hose, Maria-Esther Vidal (2024) Semantic Web: Past, Present, and Future. TGDK 2(1): 3:1-3:37 (2024) DOI: 
+                <a href="https://doi.org/10.4230/TGDK.2.1.3" target="_blank" class="text-break">https://doi.org/10.4230/TGDK.2.1.3</a>
+            </li>
+            <li class="mb-2">
+                Digital 2025: the state of social media in 2025 [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://datareportal.com/reports/digital-2025-sub-section-state-of-social" target="_blank" class="text-break">https://datareportal.com/reports/digital-2025-sub-section-state-of-social</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+            <li class="mb-2">
+                The Evolution of Social Networks in Web 3.0: Community Governance and Content Ownership [Электронный ресурс] – Режим доступа URL: 
+                <a href="https://www.linkedin.com/pulse/evolution-social-networks-web-30-community-governance-content-cthhf/" target="_blank" class="text-break">https://www.linkedin.com/pulse/evolution-social-networks-web-30...</a> 
+                (дата обращения: 30.09.2025).
+            </li>
+        </ol>
+    </section>
+
+    <footer class="text-center py-4 text-white mt-5">
+        <p class="mb-0">© 2025 МГТУ «СТАНКИН». Лабораторная работа №3</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Анимация появления при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
